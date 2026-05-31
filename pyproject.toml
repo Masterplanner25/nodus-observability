@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nodus-observability"
+version = "0.1.0"
+description = "OTel tracing, Prometheus metrics, structured JSON logging, and trace ContextVars"
+authors = [{ name = "Shawn Knight" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["observability", "opentelemetry", "prometheus", "logging", "tracing", "nodus"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.optional-dependencies]
+logging  = ["python-json-logger>=2.0.0"]
+otel     = ["opentelemetry-api>=1.0.0", "opentelemetry-sdk>=1.0.0",
+             "opentelemetry-exporter-otlp-proto-grpc>=1.0.0",
+             "opentelemetry-instrumentation-fastapi>=0.60b0"]
+metrics  = ["prometheus-client>=0.10.0"]
+all      = ["nodus-observability[logging,otel,metrics]"]
+dev      = ["pytest>=8.0", "python-json-logger>=2.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/Masterplanner25/nodus-observability"
+Repository = "https://github.com/Masterplanner25/nodus-observability"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nodus_observability*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
