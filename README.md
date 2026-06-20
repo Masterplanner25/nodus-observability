@@ -2,6 +2,8 @@
 
 OpenTelemetry bootstrap, Prometheus registry, structured JSON logging, and async-safe trace ContextVars. Zero required dependencies beyond `python-json-logger` — OTel and Prometheus are optional extras.
 
+> **Status:** v0.1.0 — published on [PyPI](https://pypi.org/project/nodus-observability/).
+
 ## Install
 
 ```bash
